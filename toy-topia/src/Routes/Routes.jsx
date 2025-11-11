@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login"
 import Registration from "../pages/Auth/Registration";
 import Profile from "../pages/Profile/Profile"
+import AllToys from "../pages/AllToys/AllToys";
+import Blog from "../pages/Blog/Blog";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +15,14 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "/alltoys",
+        Component: AllToys,
+      },
+      {
+        path: "/blog",
+        Component: Blog,
       },
       {
         path: "/login",
