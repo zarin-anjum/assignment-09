@@ -14,8 +14,7 @@ const PopularToys = () => {
       availableQuantity: 75,
       description:
         "A timeless set of colorful Lego bricks that encourages creativity and problem-solving. Kids can build anything they imagine, from houses to vehicles.",
-      pictureURL:
-        "/assets/p1.jpeg",
+      pictureURL: "/assets/p1.jpeg",
       subCategory: "Building Blocks",
     },
     {
@@ -28,8 +27,7 @@ const PopularToys = () => {
       availableQuantity: 60,
       description:
         "Large, easy-to-hold blocks perfect for toddlers. Helps develop hand-eye coordination and motor skills.",
-      pictureURL:
-        "/assets/p2.jpeg",
+      pictureURL: "/assets/p2.jpeg",
       subCategory: "Building Blocks",
     },
     {
@@ -42,8 +40,7 @@ const PopularToys = () => {
       availableQuantity: 40,
       description:
         "Barbie Dreamhouse with three floors, multiple rooms, and accessories for endless pretend play fun.",
-      pictureURL:
-        "/assets/p3.jpeg",
+      pictureURL: "/assets/p3.jpeg",
       subCategory: "Dolls",
     },
     {
@@ -56,8 +53,7 @@ const PopularToys = () => {
       availableQuantity: 55,
       description:
         "A nurturing baby doll that lets kids feed, change, and care for their baby with included accessories.",
-      pictureURL:
-        "/assets/p4.jpeg",
+      pictureURL: "/assets/p4.jpeg",
       subCategory: "Dolls",
     },
     {
@@ -70,8 +66,7 @@ const PopularToys = () => {
       availableQuantity: 80,
       description:
         "A massive racing track with loops, jumps, and speed boosters for Hot Wheels enthusiasts.",
-      pictureURL:
-        "/assets/p5.jpeg",
+      pictureURL: "/assets/p5.jpeg",
       subCategory: "Vehicles",
     },
     {
@@ -84,8 +79,7 @@ const PopularToys = () => {
       availableQuantity: 65,
       description:
         "Durable off-road RC truck with rechargeable battery and all-terrain tires.",
-      pictureURL:
-        "/assets/p6.jpeg",
+      pictureURL: "/assets/p6.jpeg",
       subCategory: "Vehicles",
     },
   ];
@@ -94,7 +88,7 @@ const PopularToys = () => {
       <h1 className="font-bold text-xl text-[#1E3A8A] md:text-3xl lg:text-5xl mb-4">
         Popular Toys
       </h1>
-      <p className="text-sm md:text-lg lg:text-xl text-gray-700 mb-8">
+      <p className="text-sm md:text-lg lg:text-xl text-[#627382] mb-8">
         Handpicked Popular Toys for Endless Fun and Creativity!
       </p>
 
@@ -117,7 +111,7 @@ const PopularToys = () => {
               Available: {toy.availableQuantity}
             </p>
             <button
-              className="btn bg-linear-to-r from-[#00D390] to-[#00B48D] text-[#ffffff] mt-3 w-full rounded-xl hover:bg-[#00C48D] transition-colors duration-300"
+              className="btn bg-linear-to-r from-[#00D390] to-[#00B48D] text-[#ffffff] mt-3 w-full rounded-xl hover:from-[#00B48D] hover:to-[#00976D] hover:shadow-lg transition-colors duration-300"
               onClick={() => navigate(`/toy/${toy.toyId}`)}
             >
               View More

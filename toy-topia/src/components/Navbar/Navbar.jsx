@@ -21,11 +21,11 @@ const Navbar = () => {
       <div className="navbar-start flex items-center gap-1">
         <img
           src="/assets/logo.png"
-          alt="TOY-TOPIA logo"
+          alt="ToyTopia logo"
           className="w-5 md:w-8 lg:w-16 h-5 md:h-8 lg:h-16"
         />
         <a className="font-bold text-sm md:text-[16px] lg:text-xl bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">
-          TOY-TOPIA
+          ToyTopia
         </a>
       </div>
 
