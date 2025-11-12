@@ -52,14 +52,14 @@ const Registration = () => {
   const handleGoogleLogin = async () => {
     try {
       await googleLogin();
-      navigate("/"); // redirect after Google login
+      navigate("/"); 
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+    <div className="min-h-screen flex justify-center items-center bg-[#E0F7FA]">
       <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">Register</h2>
 
