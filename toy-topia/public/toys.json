@@ -8,7 +8,7 @@
     "rating": 4.7,
     "availableQuantity": 75,
     "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving. Kids can build anything they imagine, from houses to vehicles.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2016/03/31/20/11/lego-1297582_1280.png",
+    "pictureURL": "/assets/p1.jpeg",
     "subCategory": "Building Blocks"
   },
   {
@@ -20,7 +20,7 @@
     "rating": 4.5,
     "availableQuantity": 60,
     "description": "Large, easy-to-hold blocks perfect for toddlers. Helps develop hand-eye coordination and motor skills.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2017/09/05/16/12/toys-2721146_1280.jpg",
+    "pictureURL": "/assets/p2.jpeg",
     "subCategory": "Building Blocks"
   },
   {
@@ -32,7 +32,7 @@
     "rating": 4.8,
     "availableQuantity": 40,
     "description": "Barbie Dreamhouse with three floors, multiple rooms, and accessories for endless pretend play fun.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2016/03/27/19/16/barbie-1280436_1280.jpg",
+    "pictureURL": "/assets/p3.jpeg",
     "subCategory": "Dolls"
   },
   {
@@ -44,7 +44,7 @@
     "rating": 4.3,
     "availableQuantity": 55,
     "description": "A nurturing baby doll that lets kids feed, change, and care for their baby with included accessories.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2016/11/22/19/31/doll-1850095_1280.jpg",
+    "pictureURL": "/assets/p4.jpeg",
     "subCategory": "Dolls"
   },
   {
@@ -56,7 +56,7 @@
     "rating": 4.6,
     "availableQuantity": 80,
     "description": "A massive racing track with loops, jumps, and speed boosters for Hot Wheels enthusiasts.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2016/11/29/06/17/toy-car-1868978_1280.jpg",
+    "pictureURL": "/assets/p5.jpeg",
     "subCategory": "Vehicles"
   },
   {
@@ -68,7 +68,7 @@
     "rating": 4.4,
     "availableQuantity": 65,
     "description": "Durable off-road RC truck with rechargeable battery and all-terrain tires.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2017/01/23/18/11/toy-2004019_1280.jpg",
+    "pictureURL": "/assets/p6.jpeg",
     "subCategory": "Vehicles"
   },
   {
@@ -80,7 +80,7 @@
     "rating": 4.5,
     "availableQuantity": 50,
     "description": "Interactive learning desk that teaches letters, numbers, and words through music and games.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2014/04/03/00/35/letters-309121_1280.png",
+    "pictureURL": "/assets/p7.jpeg",
     "subCategory": "Educational Toys"
   },
   {
@@ -92,7 +92,7 @@
     "rating": 4.7,
     "availableQuantity": 45,
     "description": "Kid-safe tablet with preloaded educational games and apps designed to make learning fun.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2017/09/04/18/17/children-2718907_1280.jpg",
+    "pictureURL": "/assets/p8.jpeg",
     "subCategory": "Educational Toys"
   },
   {
@@ -104,7 +104,7 @@
     "rating": 4.9,
     "availableQuantity": 90,
     "description": "Soft and cuddly teddy bear with a friendly smile, perfect for kids of all ages.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2017/08/06/13/56/teddy-2592330_1280.jpg",
+    "pictureURL": "/assets/p9.jpeg",
     "subCategory": "Plush Toys"
   },
   {
@@ -116,7 +116,7 @@
     "rating": 4.8,
     "availableQuantity": 70,
     "description": "Adorable rainbow unicorn plush toy with sparkly details that every child will love.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2021/01/19/15/53/unicorn-5930625_1280.jpg",
+    "pictureURL": "/assets/p10.jpeg",
     "subCategory": "Plush Toys"
   },
   {
@@ -128,7 +128,7 @@
     "rating": 4.4,
     "availableQuantity": 58,
     "description": "Eco-friendly wooden puzzle set that enhances problem-solving and spatial awareness.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2015/03/26/10/01/puzzle-690679_1280.jpg",
+    "pictureURL": "/assets/p11.jpeg",
     "subCategory": "Puzzles"
   },
   {
@@ -140,7 +140,7 @@
     "rating": 4.6,
     "availableQuantity": 85,
     "description": "Assemble your own wooden dinosaur skeleton and learn about prehistoric creatures.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2014/04/02/10/49/dinosaur-304891_1280.png",
+    "pictureURL": "/assets/p12.jpeg",
     "subCategory": "Puzzles"
   },
   {
@@ -152,7 +152,7 @@
     "rating": 4.5,
     "availableQuantity": 52,
     "description": "Complete art set with crayons, watercolors, pencils, and sketchpad for young artists.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2016/03/26/13/09/art-1282314_1280.jpg",
+    "pictureURL": "/assets/p13.jpeg",
     "subCategory": "Arts & Crafts"
   },
   {
@@ -164,7 +164,7 @@
     "rating": 4.7,
     "availableQuantity": 95,
     "description": "Colorful Play-Doh set with fun molds to inspire creative and sensory play.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2016/11/21/15/40/clay-1845473_1280.jpg",
+    "pictureURL": "/assets/p14.jpeg",
     "subCategory": "Arts & Crafts"
   },
   {
@@ -176,7 +176,7 @@
     "rating": 4.6,
     "availableQuantity": 68,
     "description": "High-performance Nerf blaster with foam darts and precision targeting system.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2019/07/21/09/12/toy-gun-4353055_1280.jpg",
+    "pictureURL": "/assets/p15.jpeg",
     "subCategory": "Action Toys"
   },
   {
@@ -188,7 +188,7 @@
     "rating": 4.8,
     "availableQuantity": 40,
     "description": "Detailed action figure of Optimus Prime that transforms from robot to truck mode.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2016/11/29/06/15/transformer-1868976_1280.jpg",
+    "pictureURL": "/assets/p16.jpeg",
     "subCategory": "Action Toys"
   },
   {
@@ -200,7 +200,7 @@
     "rating": 4.7,
     "availableQuantity": 48,
     "description": "Interactive play gym with soft toys, mirrors, and music to engage infants and toddlers.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2015/03/26/09/54/baby-690640_1280.jpg",
+    "pictureURL": "/assets/p17.jpeg",
     "subCategory": "Baby Toys"
   },
   {
@@ -212,7 +212,7 @@
     "rating": 4.5,
     "availableQuantity": 100,
     "description": "Colorful stacking rings designed to develop motor skills and color recognition in babies.",
-    "pictureURL": "https://cdn.pixabay.com/photo/2017/09/09/09/15/toy-2735498_1280.jpg",
+    "pictureURL": "/assets/p18.jpeg",
     "subCategory": "Baby Toys"
   }
 ]
