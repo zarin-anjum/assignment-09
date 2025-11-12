@@ -67,18 +67,6 @@ const Navbar = () => {
               My Collection
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/About"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-purple-600 font-bold"
-                  : "hover:text-purple-600 hover:underline"
-              }
-            >
-              About
-            </NavLink>
-          </li>
         </ul>
       </div>
 

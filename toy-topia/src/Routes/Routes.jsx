@@ -6,7 +6,6 @@ import Registration from "../pages/Auth/Registration";
 import Profile from "../pages/Profile/Profile";
 import AllToys from "../pages/AllToys/AllToys";
 import MyToys from "../pages/MyToys/MyToys";
-import About from "../pages/About/About";
 import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
@@ -29,10 +28,6 @@ export const router = createBrowserRouter([
             <MyToys></MyToys>
           </PrivateRoutes>
         ),
-      },
-      {
-        path: "/about",
-        Component: About,
       },
       {
         path: "/login",

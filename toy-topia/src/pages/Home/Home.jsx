@@ -1,3 +1,4 @@
+import PopularToys from "../../components/PopularToys/PopularToys";
 import Slider from "../../components/Slider/Slider";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
       className="bg-[#E0F7FA]"
     >
       <Slider></Slider>
+      <PopularToys></PopularToys>
     </div>
   );
 };
