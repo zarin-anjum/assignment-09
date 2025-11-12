@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router";
 import Root from "../pages/Root/Root";
 import Home from "../pages/Home/Home";
-import Login from "../pages/Auth/Login"
+import Login from "../pages/Auth/Login";
 import Registration from "../pages/Auth/Registration";
-import Profile from "../pages/Profile/Profile"
+import Profile from "../pages/Profile/Profile";
 import AllToys from "../pages/AllToys/AllToys";
-import Blog from "../pages/Blog/Blog";
+import MyToys from "../pages/MyToys/MyToys";
+import About from "../pages/About/About";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -21,8 +23,16 @@ export const router = createBrowserRouter([
         Component: AllToys,
       },
       {
-        path: "/blog",
-        Component: Blog,
+        path: "/mytoys",
+        element: (
+          <PrivateRoutes>
+            <MyToys></MyToys>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/about",
+        Component: About,
       },
       {
         path: "/login",
@@ -39,7 +49,7 @@ export const router = createBrowserRouter([
       {
         path: "/*",
         Component: () => <h2>Error 404</h2>,
-      }
+      },
     ],
   },
 ]);

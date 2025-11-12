@@ -1,9 +1,143 @@
-import React from 'react'
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useNavigate, Link } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
-  return (
-    <div>Registration</div>
-  )
-}
+  const { createUser, googleLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
-export default Registration
+  const togglePassword = () => setShowPassword(!showPassword);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+
+    const name = e.target.name.value;
+    const photoURL = e.target.photoURL.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    // Password validation
+    const uppercase = /[A-Z]/.test(password);
+    const lowercase = /[a-z]/.test(password);
+    if (!uppercase || !lowercase || password.length < 6) {
+      setError(
+        "Password must have uppercase, lowercase letters, and at least 6 characters."
+      );
+      return;
+    }
+
+    try {
+      const result = await createUser(email, password);
+
+      // Update profile
+      await updateProfile(result.user, {
+        displayName: name,
+        photoURL: photoURL,
+      });
+
+      setSuccess("Registration successful!");
+      e.target.reset();
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await googleLogin();
+      navigate("/"); // redirect after Google login
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+      <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
+        <h2 className="text-2xl font-semibold text-center mb-6">Register</h2>
+
+        <form onSubmit={handleRegister} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Name</label>
+            <input
+              type="text"
+              name="name"
+              className="w-full border px-3 py-2 rounded-lg"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Photo URL</label>
+            <input
+              type="text"
+              name="photoURL"
+              className="w-full border px-3 py-2 rounded-lg"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="w-full border px-3 py-2 rounded-lg"
+              required
+            />
+          </div>
+
+          <div className="relative">
+            <label className="block text-sm font-medium mb-1">Password</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              className="w-full border px-3 py-2 rounded-lg"
+              required
+            />
+            <button
+              type="button"
+              onClick={togglePassword}
+              className="absolute top-2 right-2 text-gray-500"
+            >
+            </button>
+          </div>
+
+          {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+          {success && (
+            <p className="text-green-600 text-sm text-center">{success}</p>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition"
+          >
+            Register
+          </button>
+        </form>
+
+        <p className="text-center mt-4 text-sm">
+          Already have an account?{" "}
+          <Link to="/login" className="text-purple-600 underline">
+            Login
+          </Link>
+        </p>
+
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full mt-4 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
+        >
+          Register with Google
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Registration;
