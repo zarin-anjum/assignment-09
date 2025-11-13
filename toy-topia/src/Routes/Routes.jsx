@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 import Root from "../pages/Root/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login";
@@ -7,19 +7,20 @@ import Profile from "../pages/Profile/Profile";
 import AllToys from "../pages/AllToys/AllToys";
 import MyToys from "../pages/MyToys/MyToys";
 import PrivateRoutes from "./PrivateRoutes";
+import ToyDetails from "../pages/ToyDetails/ToyDetails";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: Root,
+    element: <Root />,
     children: [
       {
         index: true,
-        Component: Home,
+        element: <Home />,
       },
       {
         path: "/alltoys",
-        Component: AllToys,
+        element: <AllToys />,
       },
       {
         path: "/mytoys",
@@ -30,20 +31,28 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/toy/:toyId",
+        element: (
+          <PrivateRoutes>
+            <ToyDetails></ToyDetails>
+          </PrivateRoutes>
+        ),
+      },
+      {
         path: "/login",
-        Component: Login,
+        element: <Login />,
       },
       {
         path: "/registration",
-        Component: Registration,
+        element: <Registration />,
       },
       {
         path: "/profile",
-        Component: Profile,
+        element: <Profile />,
       },
       {
         path: "/*",
-        Component: () => <h2>Error 404</h2>,
+        element: <h2>Error 404</h2>,
       },
     ],
   },

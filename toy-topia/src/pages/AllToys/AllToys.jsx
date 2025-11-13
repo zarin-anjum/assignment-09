@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const AllToys = () => {
   const navigate = useNavigate();
@@ -46,14 +46,14 @@ const AllToys = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredToys.map((toy) => (
             <div
-              key={toy.toyID}
-              className="rounded-lg shadow hover:shadow-xl p-4 bg-white flex flex-col justify-between h-full"
-              onClick={() => navigate(`/toy/${toy.toyID}`)}
+              key={toy.toyId}
+              className="rounded-lg shadow hover:shadow-xl p-4 bg-white flex flex-col justify-between h-full border-[#00B48D] border-2"
+              onClick={() => navigate(`/toy/${toy.toyId}`)}
             >
               <img
                 src={toy.pictureURL}
                 alt={toy.toyName}
-                className="mx-auto mb-4 border-2 border-gray-400 rounded-md"
+                className="mx-auto mb-4 border-2  border-[#00B48D] rounded-md"
               />
               <h2 className="font-medium text-xl mb-4">{toy.toyName}</h2>
               <p className="text-gray-700 mb-1">Price: ${toy.price}</p>

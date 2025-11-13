@@ -96,7 +96,7 @@ const PopularToys = () => {
         {toysData.map((toy) => (
           <div
             key={toy.toyId}
-            className="rounded-lg shadow hover:shadow-xl p-4 bg-white cursor-pointer"
+            className="rounded-lg shadow hover:shadow-xl p-4 bg-white cursor-pointer border-2 border-[#00B48D]"
             onClick={() => navigate(`/toy/${toy.toyId}`)}
           >
             <img
