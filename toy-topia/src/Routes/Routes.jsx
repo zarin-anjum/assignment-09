@@ -9,11 +9,13 @@ import PrivateRoutes from "./PrivateRoutes";
 import ToyDetails from "../pages/ToyDetails/ToyDetails";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import ForgetPassword from "../pages/Auth/ForgetPassword";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -58,10 +60,6 @@ export const router = createBrowserRouter([
             <Profile />
           </PrivateRoutes>
         ),
-      },
-      {
-        path: "/*",
-        element: <h2>Error 404</h2>,
       },
     ],
   },
