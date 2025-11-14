@@ -1,27 +1,53 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useLocation, useNavigate, Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
 
+  const getFriendlyError = (error) => {
+    switch (error.code) {
+      case "auth/user-not-found":
+        return "No account found with this email.";
+      case "auth/wrong-password":
+        return "Incorrect password. Try again!";
+      case "auth/invalid-email":
+        return "Please enter a valid email address.";
+      case "auth/user-disabled":
+        return "This account has been disabled.";
+      default:
+        return "Login failed. Please try again.";
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     try {
       await signIn(email, password);
+      toast.success("Logged in successfully!", {
+        style: { borderRadius: "10px", background: "#DCFCE7", color: "#166534" },
+      });
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err.message);
+      const message = getFriendlyError(err);
+      toast.error(message, {
+        style: { borderRadius: "10px", background: "#FEE2E2", color: "#B91C1C" },
+      });
+    } finally {
+      setLoading(false);
     }
   };
 

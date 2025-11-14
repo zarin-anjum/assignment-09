@@ -32,7 +32,23 @@ const Wishlist = () => {
     setWishlist(updatedList);
     localStorage.setItem(wishlistKey, JSON.stringify(updatedList));
 
-    toast.success("Toy removed from wishlist!");
+    toast.success("Toy removed from wishlist!", {
+      duration: 2500,
+      position: "top-center",
+      style: {
+        background: "linear-gradient(to right, #FF6B6B, #F56565)", 
+        color: "#fff",
+        fontWeight: "600",
+        borderRadius: "12px",
+        boxShadow: "0 4px 14px rgba(245, 101, 101, 0.3)",
+        padding: "12px 20px",
+        textAlign: "center",
+      },
+      iconTheme: {
+        primary: "#fff",
+        secondary: "#FF6B6B",
+      },
+    });
   };
 
   if (loading) {
@@ -43,7 +59,9 @@ const Wishlist = () => {
 
   if (wishlist.length === 0) {
     return (
-      <p className="text-center text-gray-600 mt-20">Your wishlist is empty.</p>
+      <p className="text-center text-2xl text-gray-600 mt-20 mb-20">
+        Your wishlist is empty.
+      </p>
     );
   }
 
@@ -72,7 +90,7 @@ const Wishlist = () => {
 
             <button
               onClick={() => removeFromWishlist(toy.toyId)}
-              className="mt-4 w-full py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
+              className="mt-4 w-full py-2 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-600 transition"
             >
               Remove
             </button>

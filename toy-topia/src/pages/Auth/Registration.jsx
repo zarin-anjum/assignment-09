@@ -2,15 +2,31 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Registration = () => {
   const { createUser, googleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const togglePassword = () => setShowPassword(!showPassword);
+
+  const getFriendlyError = (error) => {
+    const code = error.code || "";
+    switch (code) {
+      case "auth/email-already-in-use":
+        return "This email is already registered.";
+      case "auth/invalid-email":
+        return "Please enter a valid email address.";
+      case "auth/weak-password":
+        return "Password is too weak. Use at least 6 characters.";
+      default:
+        return "Registration failed. Please try again.";
+    }
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -26,9 +42,17 @@ const Registration = () => {
     const uppercase = /[A-Z]/.test(password);
     const lowercase = /[a-z]/.test(password);
     if (!uppercase || !lowercase || password.length < 6) {
-      setError(
-        "Password must have uppercase, lowercase letters, and at least 6 characters."
+      toast.error(
+        "Password must include uppercase, lowercase letters, and at least 6 characters.",
+        {
+          style: {
+            borderRadius: "10px",
+            background: "#FEE2E2",
+            color: "#B91C1C",
+          },
+        }
       );
+      setLoading(false);
       return;
     }
 
@@ -41,20 +65,49 @@ const Registration = () => {
         photoURL: photoURL,
       });
 
-      setSuccess("Registration successful!");
+      toast.success("Registration successful!", {
+        style: {
+          borderRadius: "10px",
+          background: "#DCFCE7",
+          color: "#166534",
+        },
+      });
       e.target.reset();
       navigate("/");
     } catch (err) {
-      setError(err.message);
+      const message = getFriendlyError(err);
+      toast.error(message, {
+        style: {
+          borderRadius: "10px",
+          background: "#FEE2E2",
+          color: "#B91C1C",
+        },
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleGoogleLogin = async () => {
     try {
       await googleLogin();
-      navigate("/"); 
+      toast.success("Logged in with Google!", {
+        style: {
+          borderRadius: "10px",
+          background: "#DCFCE7",
+          color: "#166534",
+        },
+      });
+      navigate("/");
     } catch (err) {
-      setError(err.message);
+      const message = getFriendlyError(err);
+      toast.error(message, {
+        style: {
+          borderRadius: "10px",
+          background: "#FEE2E2",
+          color: "#B91C1C",
+        },
+      });
     }
   };
 
@@ -105,8 +158,7 @@ const Registration = () => {
               type="button"
               onClick={togglePassword}
               className="absolute top-2 right-2 text-gray-500"
-            >
-            </button>
+            ></button>
           </div>
 
           {error && <p className="text-red-600 text-sm text-center">{error}</p>}

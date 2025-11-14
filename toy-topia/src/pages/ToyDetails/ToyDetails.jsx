@@ -106,9 +106,39 @@ const ToyDetails = () => {
       existingWishlist.push(toy);
       localStorage.setItem(wishlistKey, JSON.stringify(existingWishlist));
 
-      toast.success("✨ Toy saved to your Wishlist!");
+      toast.success("Toy saved to your Wishlist!", {
+        duration: 2500, 
+        position: "top-center",
+        style: {
+          background: "linear-gradient(to right, #00B48D, #1E3A8A)", 
+          color: "#fff",
+          fontWeight: "600",
+          borderRadius: "12px",
+          boxShadow: "0 4px 14px rgba(0, 180, 141, 0.3)", 
+          padding: "12px 20px",
+          textAlign: "center",
+        },
+        iconTheme: {
+          primary: "#fff", 
+          secondary: "#00B48D", 
+        },
+      });
     } else {
-      toast.error("Toy already saved!");
+      toast.error("Toy already saved!", {
+        duration: 2500,
+        position: "top-center",
+        style: {
+          background: "#FFE3E3",
+          color: "#B91C1C",
+          fontWeight: "600",
+          border: "2px solid #F87171",
+          boxShadow: "0 4px 12px rgba(184, 28, 28, 0.3)",
+        },
+        iconTheme: {
+          primary: "#B91C1C",
+          secondary: "#FFF",
+        },
+      });
     }
   };
 
