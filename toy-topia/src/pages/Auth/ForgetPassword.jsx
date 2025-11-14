@@ -3,6 +3,7 @@ import { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../firebase.config";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const ForgetPassword = () => {
   const location = useLocation();
@@ -46,6 +47,9 @@ const ForgetPassword = () => {
   };
   return (
     <div className="min-h-screen flex justify-center items-center bg-[#E0F7FA]">
+      <Helmet>
+        <title>ToyTopia – Forget Password</title> 
+      </Helmet>
       <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">
           Reset Password

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AllToys = () => {
   const navigate = useNavigate();
@@ -23,6 +24,9 @@ const AllToys = () => {
 
   return (
     <div className="text-center p-10 md:p-14 lg:p-20 bg-[#E0F7FA]">
+      <Helmet>
+        <title>ToyTopia – All Toys</title> 
+      </Helmet>
       <h1 className="font-bold text-2xl md:text-3xl lg:text-5xl text-[#1E3A8A] mb-4">
         Our All Products
       </h1>

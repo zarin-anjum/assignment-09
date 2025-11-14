@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const ToyDetails = () => {
   const { toyId } = useParams();
@@ -144,6 +145,9 @@ const ToyDetails = () => {
 
   return (
     <div className="px-6 md:px-12 lg:px-16 py-10 lg:py-16 bg-[#E0F7FA]">
+      <Helmet>
+        <title>ToyTopia – Toy Details</title> 
+      </Helmet>
       <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 lg:gap-12 mb-10 bg-white border border-[#1E3A8A]/20 shadow-lg hover:shadow-xl rounded-2xl p-8">
         <img
           src={toy.pictureURL || "/assets/placeholder.png"}

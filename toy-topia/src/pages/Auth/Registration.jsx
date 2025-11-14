@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Registration = () => {
   const { createUser, googleLogin } = useContext(AuthContext);
@@ -113,6 +114,9 @@ const Registration = () => {
 
   return (
     <div className="lg:min-h-screen p-12 flex justify-center items-center bg-[#E0F7FA]">
+      <Helmet>
+        <title>ToyTopia – Registration</title> 
+      </Helmet>
       <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">Register</h2>
 
