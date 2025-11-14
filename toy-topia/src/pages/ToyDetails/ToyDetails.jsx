@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const ToyDetails = () => {
   const { toyId } = useParams();
@@ -9,6 +10,7 @@ const ToyDetails = () => {
 
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     setLoading(true);
@@ -88,6 +90,28 @@ const ToyDetails = () => {
     setEmailInput("");
   };
 
+  const addToWishlist = () => {
+    if (!user || !user.email) {
+      toast.error("You must be logged in to save to wishlist!");
+      return;
+    }
+
+    const userEmail = user.email;
+    const wishlistKey = `wishlist_${userEmail}`;
+
+    const existingWishlist =
+      JSON.parse(localStorage.getItem(wishlistKey)) || [];
+
+    if (!existingWishlist.some((item) => item.toyId === toy.toyId)) {
+      existingWishlist.push(toy);
+      localStorage.setItem(wishlistKey, JSON.stringify(existingWishlist));
+
+      toast.success("✨ Toy saved to your Wishlist!");
+    } else {
+      toast.error("Toy already saved!");
+    }
+  };
+
   return (
     <div className="px-6 md:px-12 lg:px-16 py-10 lg:py-16 bg-[#E0F7FA]">
       <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 lg:gap-12 mb-10 bg-white border border-[#1E3A8A]/20 shadow-lg hover:shadow-xl rounded-2xl p-8">
@@ -145,6 +169,13 @@ const ToyDetails = () => {
               </p>
             </div>
           </div>
+
+          <button
+            onClick={addToWishlist}
+            className="mt-6 py-2 px-6 bg-[#1E3A8A] text-white rounded-lg shadow hover:bg-[#142a63] transition w-full sm:w-auto"
+          >
+            <i class="fa-regular fa-bookmark"></i> Save to Wishlist
+          </button>
         </div>
       </div>
 

@@ -45,7 +45,21 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+
+      if (currentUser) {
+        localStorage.setItem(
+          "toyUser",
+          JSON.stringify({
+            email: currentUser.email,
+            displayName: currentUser.displayName,
+            photoURL: currentUser.photoURL,
+          })
+        );
+      } else {
+        localStorage.removeItem("toyUser");
+      }
     });
+
     return () => unsubscribe();
   }, []);
 
@@ -59,9 +73,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={authInfo}>
-        {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 

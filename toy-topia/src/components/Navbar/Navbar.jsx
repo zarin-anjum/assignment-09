@@ -57,14 +57,14 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/MyToys"
+              to="/Wishlist"
               className={({ isActive }) =>
                 isActive
                   ? "text-purple-600 font-bold"
                   : "hover:text-purple-600 hover:underline"
               }
             >
-              My Collection
+              Wishlist
             </NavLink>
           </li>
         </ul>

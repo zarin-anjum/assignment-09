@@ -5,9 +5,9 @@ import Login from "../pages/Auth/Login";
 import Registration from "../pages/Auth/Registration";
 import Profile from "../pages/Profile/Profile";
 import AllToys from "../pages/AllToys/AllToys";
-import MyToys from "../pages/MyToys/MyToys";
 import PrivateRoutes from "./PrivateRoutes";
 import ToyDetails from "../pages/ToyDetails/ToyDetails";
+import Wishlist from "../pages/Wishlist/Wishlist";
 
 export const router = createBrowserRouter([
   {
@@ -23,10 +23,10 @@ export const router = createBrowserRouter([
         element: <AllToys />,
       },
       {
-        path: "/mytoys",
+        path: "/wishlist",
         element: (
           <PrivateRoutes>
-            <MyToys></MyToys>
+            <Wishlist></Wishlist>
           </PrivateRoutes>
         ),
       },
