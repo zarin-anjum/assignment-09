@@ -112,11 +112,11 @@ const Registration = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-[#E0F7FA]">
+    <div className="lg:min-h-screen p-12 flex justify-center items-center bg-[#E0F7FA]">
       <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">Register</h2>
 
-        <form onSubmit={handleRegister} className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-2 md:space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Name</label>
             <input

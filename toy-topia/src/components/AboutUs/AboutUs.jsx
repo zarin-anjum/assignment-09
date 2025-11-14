@@ -15,7 +15,7 @@ const AboutUs = () => {
 
         {/* Right Side */}
         <div className="flex-1 text-center md:text-left">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1E3A8A] mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-[#1E3A8A] mt-4 mb-4">
             About{" "}
             <span className="bg-linear-to-r from-[#00D390] to-[#00B48D] text-transparent bg-clip-text">
               ToyTopia

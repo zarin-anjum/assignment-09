@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -77,11 +77,13 @@ const Navbar = () => {
               className="tooltip tooltip-bottom"
               data-tip={user.displayName || "User"}
             >
-              <img
-                src={user.photoURL || "/assets/default-user.png"}
-                alt="User"
-                className="w-8 h-8 rounded-full cursor-pointer"
-              />
+              <Link to="/profile">
+                <img
+                  src={user.photoURL || "/assets/default-user.png"}
+                  alt="User"
+                  className="w-8 h-8 rounded-full cursor-pointer"
+                />
+              </Link>
             </div>
             <button
               className="btn  bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white hover:bg-purple-700 rounded-3xl"
@@ -146,22 +148,12 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/MyToys"
+                to="/Wishlist"
                 className={({ isActive }) =>
                   isActive ? "text-purple-600 font-bold" : ""
                 }
               >
-                My Collection
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/About"
-                className={({ isActive }) =>
-                  isActive ? "text-purple-600 font-bold" : ""
-                }
-              >
-                About
+                Wishlist
               </NavLink>
             </li>
 

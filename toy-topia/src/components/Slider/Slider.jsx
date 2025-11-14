@@ -1,36 +1,31 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const Slider = () => {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const totalSlides = 5;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === totalSlides ? 1 : prev + 1));
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="carousel w-full overflow-hidden">
+    <Swiper
+      modules={[Autoplay]}
+      spaceBetween={30}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 4000, disableOnInteraction: false }}
+      loop={true}
+      className="w-full h-[400px] lg:h-[500px]"
+    >
       {[1, 2, 3, 4, 5].map((num) => (
-        <div
-          key={num}
-          id={`slide${num}`}
-          className={`carousel-item relative w-full ${
-            currentSlide === num ? "block" : "hidden"
-          }`}
-        >
+        <SwiperSlide key={num}>
           <img
             src={`/assets/slider${num}.jpg`}
-            className="w-full h-[400px] lg:h-[500px] object-cover object-center"
             alt={`Toy ${num}`}
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-opacity-60"></div>
-        </div>
+        </SwiperSlide>
       ))}
-    </div>
+    </Swiper>
   );
 };
 

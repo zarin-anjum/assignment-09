@@ -8,6 +8,7 @@ import AllToys from "../pages/AllToys/AllToys";
 import PrivateRoutes from "./PrivateRoutes";
 import ToyDetails from "../pages/ToyDetails/ToyDetails";
 import Wishlist from "../pages/Wishlist/Wishlist";
+import ForgetPassword from "../pages/Auth/ForgetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -47,8 +48,16 @@ export const router = createBrowserRouter([
         element: <Registration />,
       },
       {
+        path: "/forget-password",
+        element: <ForgetPassword />,
+      },
+      {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoutes>
+            <Profile />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/*",

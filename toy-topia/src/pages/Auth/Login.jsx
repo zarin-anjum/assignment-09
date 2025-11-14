@@ -4,7 +4,8 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleLogin } = useContext(AuthContext);
+  const [emailInput, setEmailInput] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -38,13 +39,46 @@ const Login = () => {
     try {
       await signIn(email, password);
       toast.success("Logged in successfully!", {
-        style: { borderRadius: "10px", background: "#DCFCE7", color: "#166534" },
+        style: {
+          borderRadius: "10px",
+          background: "#DCFCE7",
+          color: "#166534",
+        },
       });
       navigate(from, { replace: true });
     } catch (err) {
       const message = getFriendlyError(err);
       toast.error(message, {
-        style: { borderRadius: "10px", background: "#FEE2E2", color: "#B91C1C" },
+        style: {
+          borderRadius: "10px",
+          background: "#FEE2E2",
+          color: "#B91C1C",
+        },
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    try {
+      await googleLogin();
+      toast.success("Logged in with Google!", {
+        style: {
+          borderRadius: "10px",
+          background: "#DCFCE7",
+          color: "#166534",
+        },
+      });
+      navigate(from, { replace: true });
+    } catch (err) {
+      toast.error("Google login failed. Try again.", {
+        style: {
+          borderRadius: "10px",
+          background: "#FEE2E2",
+          color: "#B91C1C",
+        },
       });
     } finally {
       setLoading(false);
@@ -52,9 +86,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-[#E0F7FA]">
+    <div className="lg:min-h-screen p-12 flex justify-center items-center bg-[#E0F7FA]">
       <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
-        <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
+        <h2 className="text-lg md:text-2xl font-semibold text-center mb-6">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Email</label>
@@ -63,6 +97,7 @@ const Login = () => {
               name="email"
               className="w-full border px-3 py-2 rounded-lg"
               required
+              onChange={(e) => setEmailInput(e.target.value)}
             />
           </div>
           <div>
@@ -75,6 +110,16 @@ const Login = () => {
             />
           </div>
 
+          <div className="text-right -mt-2">
+            <Link
+              to="/forget-password"
+              state={{ email: emailInput }} 
+              className="text-sm text-blue-600 hover:underline"
+            >
+              Forgot Password?
+            </Link>
+          </div>
+
           {error && <p className="text-red-600 text-sm text-center">{error}</p>}
 
           <button
@@ -82,6 +127,13 @@ const Login = () => {
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Login
+          </button>
+
+          <button
+            onClick={handleGoogleLogin}
+            className="mt-4 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
+          >
+            Continue with Google
           </button>
         </form>
 
