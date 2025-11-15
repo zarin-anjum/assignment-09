@@ -9,7 +9,7 @@ The purpose of this project is to create a full-stack-like React application tha
 -> Allows users to manage personal data (profile and wishlist)
 -> Enhances learning in React, routing, state management, and local storage
 
-Live URL: 
+Live URL: https://assignment-09-toytopia-zarin.netlify.app/
 
 Key Features:
 -> Home Page: Interactive slider, popular toys section, and feature highlights.
@@ -22,6 +22,7 @@ Key Features:
 -> Responsive Design: Fully responsive for mobile, tablet, and desktop screens.
 
 Technologies & NPM Packages Used:
+
 -> Frontend: React, React Router DOM
 -> Styling: TailwindCSS, DaisyUI
 -> Authentication: Firebase Authentication
